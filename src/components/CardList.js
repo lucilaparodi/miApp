@@ -23,7 +23,7 @@ const CardList = ({ handleModal, item, screenWidth, actualizar }) => {
       </View>
       <ButtonPrimary
         title="Eliminar"
-        onPress={() => handleModal(item.id)}
+        onPress={() => handleModal(item)}
       ></ButtonPrimary>
     </View>
   );
