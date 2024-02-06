@@ -1,33 +1,80 @@
-import { StyleSheet, TextInput, View, Button} from 'react-native'
-import React from 'react'
+import { StyleSheet, TextInput, View, Text } from "react-native";
+import React from "react";
+import ButtonPrimary from "./ButtonPrimary";
 
-const Add = ({taskTitle, taskDesc, handleChangeTitle, handleChangeDes, agregar}) => {
+const Add = ({
+  taskTitle,
+  taskDesc,
+  handleChangeTitle,
+  handleChangeDes,
+  agregar,
+}) => {
   return (
-    <View style={styles.container2}>
-    <TextInput value={taskTitle} onChangeText={handleChangeTitle} placeholder='ingresar nombre' style={styles.input}></TextInput>
-    <TextInput value={taskDesc} onChangeText={handleChangeDes} placeholder='ingresar descrpcion' style={styles.input}></TextInput>
-    <Button title='agregar' onPress={agregar()}></Button>
-  </View>
-  )
-}
+    <View style={styles.container}>
+      <Text style={styles.text}>TAREAS</Text>
+      <TextInput
+        value={taskTitle}
+        onChangeText={handleChangeTitle}
+        placeholder="nombre"
+        placeholderTextColor="#CE97AE"
+        style={styles.input}
+        maxLength={25}
+      ></TextInput>
+      <TextInput
+        value={taskDesc}
+        onChangeText={handleChangeDes}
+        placeholder="descripcion"
+        placeholderTextColor="#CE97AE"
+        multiline
+        numberOfLines={4}
+        style={styles.inputDesc}
+        maxLength={100}
+      ></TextInput>
+      <ButtonPrimary title="Agregar" onPress={agregar}></ButtonPrimary>
+    </View>
+  );
+};
 
-export default Add
+export default Add;
 
 const styles = StyleSheet.create({
-    container2: {
-        flex:2,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-
-      input:{
-        borderColor: '#A06379',
-        paddingHorizontal: 3,
-        width: 200,
-        height: 50,
-        margin: 10,
-        fontSize: 15,
-        borderBottomWidth: 2,
-      },
-
-})
+  container: {
+    alignItems: "center",
+    justifyContent: "space-around",
+    padding: 10,
+    margin: 5,
+  },
+  input: {
+    borderWidth: 2,
+    borderColor: "#A06379",
+    paddingHorizontal: 10,
+    width: "100%",
+    height: 50,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    paddingVertical: 5,
+    fontSize: 16,
+    color: "#A06379",
+    borderRadius: 5,
+    textAlignVertical: "top",
+  },
+  inputDesc: {
+    borderWidth: 2,
+    borderColor: "#A06379",
+    paddingHorizontal: 10,
+    width: "100%",
+    height: 100,
+    marginHorizontal: 10,
+    marginVertical: 5,
+    paddingVertical: 5,
+    fontSize: 16,
+    color: "#A06379",
+    borderRadius: 5,
+  },
+  text: {
+    fontSize: 30,
+    color: "#A06379",
+    fontWeight: "900",
+    margin: 20,
+  },
+});
